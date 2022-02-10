@@ -1,0 +1,9 @@
+{
+  name: "Xgen",
+  templates: [
+    {
+      name: "Test",
+      description: "Test template"
+    }
+  }
+}
