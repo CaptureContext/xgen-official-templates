@@ -16,5 +16,5 @@ jobs:
     - name: Publish
       run: |
         curl -X "POST" "https://api.capturecontext.dev/graphql" \
-          -H 'Content-Type: application/json; charset=utf-8' \
-          -d '{"query": "query{echo(value:\\"$REPO_URL\\")}"}'
+             -H 'Content-Type: application/json; charset=utf-8' \
+             -d $"{\"query\": \"query{echo(value:\\\"${REPO_URL}\\\")}\"}"
