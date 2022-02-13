@@ -1,0 +1,20 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REPO_URL: ${{github.server_url}}/${{github.repository}}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Publish
+      run: |
+        curl -X "POST" "https://api.capturecontext.dev/graphql" \
+          -H 'Content-Type: application/json; charset=utf-8' \
+          -d $'{"query": "query{echo(value:\\"${REPO_URL}\\")}",}'
